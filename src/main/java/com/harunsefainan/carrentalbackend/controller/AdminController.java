@@ -43,4 +43,19 @@ public class AdminController {
         return ResponseEntity.ok(carDto);
     }
 
+    @PutMapping("/car/{carId}")
+    public ResponseEntity<Void> updateCar(@PathVariable Long carId, @ModelAttribute CarDto carDto) {
+        try {
+            boolean success = adminService.updateCar(carId, carDto);
+            if (success) {
+                return ResponseEntity.status(HttpStatus.OK).build();
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+    }
+
 }
