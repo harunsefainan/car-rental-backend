@@ -31,4 +31,11 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
+    @GetMapping("/car/{carId}")
+    public ResponseEntity<CarDto> getCarById(@PathVariable Long carId) {
+        CarDto carDto = customerService.getCarById(carId);
+        if (carDto == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(carDto);
+    }
+
 }
