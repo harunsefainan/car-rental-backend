@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/v1/api/admin")
 @RequiredArgsConstructor
 public class AdminController {
 
