@@ -2,6 +2,7 @@ package com.harunsefainan.carrentalbackend.controller;
 
 import com.harunsefainan.carrentalbackend.dto.BookACarDto;
 import com.harunsefainan.carrentalbackend.dto.CarDto;
+import com.harunsefainan.carrentalbackend.dto.SearchCarDto;
 import com.harunsefainan.carrentalbackend.services.admin.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -70,6 +71,11 @@ public class AdminController {
         boolean success = adminService.changeBookingStatus(bookingId, status);
         if (success) return ResponseEntity.ok().build();
         return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/car/search")
+    public ResponseEntity<?> searchCar(@RequestBody SearchCarDto searchCarDto) {
+        return ResponseEntity.ok(adminService.searchCar(searchCarDto));
     }
 
 }
