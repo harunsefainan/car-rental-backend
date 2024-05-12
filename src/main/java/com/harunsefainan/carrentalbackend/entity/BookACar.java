@@ -1,6 +1,7 @@
 package com.harunsefainan.carrentalbackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.harunsefainan.carrentalbackend.dto.BookACarDto;
 import com.harunsefainan.carrentalbackend.enums.BookCarStatus;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -39,4 +40,20 @@ public class BookACar {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Car car;
+
+    public BookACarDto getBookACarDto() {
+        BookACarDto bookACarDto = new BookACarDto();
+        bookACarDto.setId(id);
+        bookACarDto.setFromDate(fromDate);
+        bookACarDto.setToDate(toDate);
+        bookACarDto.setDays(days);
+        bookACarDto.setPrice(price);
+        bookACarDto.setBookCarStatus(bookCarStatus);
+        bookACarDto.setEmail(user.getEmail());
+        bookACarDto.setUsername(user.getName());
+        bookACarDto.setUserId(user.getId());
+        bookACarDto.setCarId(car.getId());
+        return bookACarDto;
+    }
+
 }
