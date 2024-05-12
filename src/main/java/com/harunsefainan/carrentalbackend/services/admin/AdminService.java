@@ -1,5 +1,6 @@
 package com.harunsefainan.carrentalbackend.services.admin;
 
+import com.harunsefainan.carrentalbackend.dto.BookACarDto;
 import com.harunsefainan.carrentalbackend.dto.CarDto;
 
 import java.io.IOException;
@@ -16,5 +17,9 @@ public interface AdminService {
     CarDto getCarById(Long id);
 
     boolean updateCar(Long carId, CarDto carDto) throws IOException;
+
+    List<BookACarDto> getBookings();
+
+    boolean changeBookingStatus(Long bookingId, String status);
 
 }
