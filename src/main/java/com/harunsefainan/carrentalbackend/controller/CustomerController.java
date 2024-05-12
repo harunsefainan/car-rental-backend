@@ -1,12 +1,13 @@
 package com.harunsefainan.carrentalbackend.controller;
 
+import com.harunsefainan.carrentalbackend.dto.BookACarDto;
 import com.harunsefainan.carrentalbackend.dto.CarDto;
 import com.harunsefainan.carrentalbackend.services.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +22,13 @@ public class CustomerController {
     public ResponseEntity<List<CarDto>> getAllCars() {
         List<CarDto> carDtoList = customerService.getAllCars();
         return ResponseEntity.ok(carDtoList);
+    }
+
+    @PostMapping("/car/book")
+    public ResponseEntity<Void> bookACar(@RequestBody BookACarDto bookACarDto) {
+        boolean success = customerService.bookACar(bookACarDto);
+        if (success) return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
 }
