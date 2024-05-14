@@ -49,6 +49,16 @@ Veritabanı işlemleri için ise JpaRepository kullanılmıştır. Bu sayede, ar
 - Projeyi çalıştırın.
 - Tarayıcıyı açın ve localhost:8080 adresine gidin (Portu değiştirdiyseniz 8080 yerine değiştirilmiş portu kullanın)
 
+## Project Detayları
+
+![Project Details](./images/carrentaldetails.png)
+
+### Veritabanı
+
+- Varlık Modelleri
+
+![Entity Models](./images/rentacar.png)
+
 ## Kullanılan Teknolojiler
 
  <p align="center">

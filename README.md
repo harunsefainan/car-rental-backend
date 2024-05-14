@@ -52,6 +52,16 @@ JpaRepository is used for database operations, allowing efficient management of 
 - Run the project.
 - Open the browser and locate to ```localhost:8080``` (If you changed the port use changed port instead of 8080)
 
+## Project Details
+
+![Project Details](./docs/images/carrentaldetails.png)
+
+### Database
+
+- Entity Models
+
+![Entity Models](./docs/images/rentacar.png)
+
 ## Built With
 
  <p align="center">
