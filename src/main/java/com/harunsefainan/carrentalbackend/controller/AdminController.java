@@ -29,7 +29,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping("/cars")
+    @GetMapping("/cars")
     public ResponseEntity<?> getAllCars() {
         return ResponseEntity.ok(adminService.getAllCars());
     }
